@@ -35,3 +35,18 @@ public class aw {
 
 ### Homework3
 ```java
+public class c3 {
+	public static void main(String[] args) {
+		int a = 1;
+		int b = 2;
+		for(int i=0; i<20; i++){
+			int c = a+b;
+			a = b;
+			b = c;
+			System.out.println(b+"/"+a+"="+(double)b/a);
+		}
+	}
+}
+```
+<img width="739" height="664" alt="{B8668900-F511-455F-B76E-5671F3861BED}" src="https://github.com/user-attachments/assets/e47f293d-33ca-42f3-9e5c-5599646a3f0a" />
+
