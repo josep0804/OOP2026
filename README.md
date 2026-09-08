@@ -50,3 +50,19 @@ public class c3 {
 ```
 <img width="739" height="664" alt="{B8668900-F511-455F-B76E-5671F3861BED}" src="https://github.com/user-attachments/assets/e47f293d-33ca-42f3-9e5c-5599646a3f0a" />
 
+### Homework4
+```java
+public class h4 {
+	public static void main(String[] args) {
+		for(int i =1; i<10; i+=1) {
+			for(int j=1; j<10; j++) { 
+				System.out.print(j+"*"+i+"="+(i*j)+"\t");
+			}
+			System.out.println();
+		}
+	}
+}
+```
+<img width="733" height="504" alt="{DA70D68E-E13F-4B66-86C7-A16E116336DB}" src="https://github.com/user-attachments/assets/35a1b9c5-3de2-4ba7-821d-afacf190f556" />
+
+
