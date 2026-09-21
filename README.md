@@ -120,3 +120,24 @@ public class h7 {
 ```
 <img width="738" height="560" alt="{EE72AB31-704E-4AC7-8140-FE27A67B7959}" src="https://github.com/user-attachments/assets/a537f4e6-0659-42b2-a335-0259f3ad35c1" />
 
+### Homework8
+```java
+public class h8 {
+	public static void main(String[] args) {
+		int score[][] = new int[5][4];
+		for(int i=0; i<5; i++) {
+			for(int j=0; j<4; j++) {
+				score[i][j] = (int)(Math.random()*101);
+			}
+		}
+		System.out.println("국어\t수학\t사회\t과학\t");
+		for(int i=0; i<5; i++) {
+			for(int j=0; j<4; j++) {
+				System.out.print(score[i][j] + "\t");	
+			}
+			System.out.println();
+		}
+	}
+}
+```
+<img width="726" height="621" alt="{EF76420A-2C45-4A01-A24B-3260FC00EA04}" src="https://github.com/user-attachments/assets/086a0143-3924-49e8-a9bd-34b82c8e357c" />
