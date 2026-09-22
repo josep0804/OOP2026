@@ -77,6 +77,13 @@ public class h5 {
 		System.out.println(pi);
 	}
 }
+/// int i, n=100, sign=1;
+/// double sum=0;
+/// for(i=0,i<n,i++){
+///		sum+=sign*4./(2.*i+1);
+/// 	sign*=-1;
+/// }
+/// System.out.println(sum);
 ```
 <img width="719" height="392" alt="{CCB5CBC9-EE59-4092-B01F-6E4F7A9BE72E}" src="https://github.com/user-attachments/assets/4b62d470-1d89-4dd2-a902-4b4807ad7eba" />
 
