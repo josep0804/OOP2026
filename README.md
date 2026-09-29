@@ -184,4 +184,44 @@ public class h10{
 ```
 <img width="739" height="615" alt="{93EA3840-FBD8-4F23-9725-8D0929584280}" src="https://github.com/user-attachments/assets/526239e2-30d8-4cc6-a62d-beb469f5f615" />
 
+### Homework11
+```java
+
+```
+
+
+### Homework13
+```java
+import java.util.Scanner;
+public class h13 {
+	public static void main(String[] args) {
+		int out;
+		while(true) {
+			Scanner scanner = new Scanner(System.in);
+			String inputString = scanner.nextLine();
+			System.out.println(inputString);
+			String[] arrOfStr = inputString.split(" ");
+			for (String a : arrOfStr) 
+				System.out.println(a);
+			if(arrOfStr[1].equals("+")) {
+				out = Integer.parseInt(arrOfStr[0])+Integer.parseInt(arrOfStr[2]);
+				System.out.print(out);
+			}
+			else if(arrOfStr[1].equals("-")) {
+				
+			}
+			else if(arrOfStr[1].equals("#")) {
+			
+			}
+			else if(arrOfStr[1].equals("/")) {
+			
+			}
+		
+		}
+	}
+}
+```
+<img width="739" height="656" alt="{7A2BBD36-11CC-4AD4-8495-BAEA3CE6D382}" src="https://github.com/user-attachments/assets/e33a9048-76ce-4898-bb57-a5ba99e47112" />
+
+
 
