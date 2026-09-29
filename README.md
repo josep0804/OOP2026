@@ -148,3 +148,40 @@ public class h8 {
 }
 ```
 <img width="726" height="621" alt="{EF76420A-2C45-4A01-A24B-3260FC00EA04}" src="https://github.com/user-attachments/assets/086a0143-3924-49e8-a9bd-34b82c8e357c" />
+
+### Homework10
+```java
+public class h10{
+	public static void main(String[] args) { 
+			int array_count, max_value, bin_size, display_scale, hist_size;
+			if(args.length !=4)
+					return;
+			array_count = Integer.parseInt(args[0]);
+			max_value = Integer.parseInt(args[1]);
+			bin_size = Integer.parseInt(args[2]);
+			display_scale = Integer.parseInt(args[3]);
+			hist_size = max_value/bin_size;
+		
+			int[] arr = new int[array_count];
+			int[] hist = new int[hist_size];
+			for (int i=0; i<array_count; i++) {
+					arr[i] = (int) (Math.random()*max_value);
+			}
+			for (int i=0; i<array_count; i++) {
+					System.out.print(arr[i] + " ");  
+			}
+			System.out.println();  
+		
+			for (int i=0; i<array_count; i++) {
+					hist[arr[i]/bin_size]++;
+			}
+			for (int i=0; i<hist_size; i++) {
+					System.out.print(hist[i] + " ");  
+			}
+			System.out.println();  
+		}
+}
+```
+<img width="739" height="615" alt="{93EA3840-FBD8-4F23-9725-8D0929584280}" src="https://github.com/user-attachments/assets/526239e2-30d8-4cc6-a62d-beb469f5f615" />
+
+
