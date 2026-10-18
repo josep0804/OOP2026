@@ -186,8 +186,65 @@ public class h10{
 
 ### Homework11
 ```java
+public class Main {
+    public static void main(String[] args) {
+        if (args.length != 1) {
+            System.out.println("Usage: java StatisticsCalculator <array_count>");
+            return;
+        }
+        
+        int array_count = Integer.parseInt(args[0]);
+        if (array_count <= 0) {
+            System.out.println("Array count must be greater than 0.");
+            return;
+        }
 
+        int[] arr = new int[array_count];
+        for (int i = 0; i < array_count; i++) {
+            arr[i] = (int) (Math.random() * 100) + 1; 
+        }
+
+        System.out.print("Array elements: ");
+        for (int i = 0; i < array_count; i++) {
+            System.out.print(arr[i] + " ");  
+        }
+        System.out.println();
+
+        double sum = 0;
+        for (int i = 0; i < array_count; i++) {
+            sum += arr[i];
+        }
+        double arithmeticMean = sum / array_count;
+        System.out.printf("Arithmetic Mean: %.4f\n", arithmeticMean);
+
+        double prod = 1.0;
+        for (int i = 0; i < array_count; i++) {
+            prod *= arr[i];
+        }
+        double geometricMean = Math.pow(prod, 1.0 / array_count);
+        System.out.printf("Geometric Mean: %.4f\n", geometricMean);
+
+        double reciprocalSum = 0;
+        for (int i = 0; i < array_count; i++) {
+            reciprocalSum += 1.0 / arr[i];
+        }
+        double harmonicMean = array_count / reciprocalSum;
+        System.out.printf("Harmonic Mean: %.4f\n", harmonicMean);
+
+        int[] sortedArr = arr.clone();
+        java.util.Arrays.sort(sortedArr);
+        
+        double median;
+        if (array_count % 2 == 1) {
+            median = sortedArr[array_count / 2];
+        } else {
+            median = (sortedArr[array_count / 2 - 1] + sortedArr[array_count / 2]) / 2.0;
+        }
+        System.out.printf("Median: %.4f\n", median);
+    }
+}
 ```
+<img width="438" height="260" alt="{5BC0C3AA-8133-495A-A0D4-256EC3587557}" src="https://github.com/user-attachments/assets/ef7e3373-e3ab-4da5-bc47-af21db24cba3" />
 
 
 ### Homework13
@@ -222,6 +279,115 @@ public class h13 {
 }
 ```
 <img width="739" height="656" alt="{7A2BBD36-11CC-4AD4-8495-BAEA3CE6D382}" src="https://github.com/user-attachments/assets/e33a9048-76ce-4898-bb57-a5ba99e47112" />
+
+### Homework14
+```java
+class Numbers {
+    int num[];
+    
+    Numbers(int num[]) {
+        this.num = num;
+    }
+    
+    double getTotal() {
+        double sum = 0;
+        for(int i = 0; i < num.length; i++) sum += num[i];
+        return sum;
+    }
+    
+    double getArithmaticMean() {
+        return getTotal() / num.length;
+    }
+    
+    double getHarmonicMean() {
+        double reciprocalSum = 0;
+        for(int i = 0; i < num.length; i++) {
+            if (num[i] == 0) return 0.0; 
+            reciprocalSum += 1.0 / num[i];
+        }
+        return num.length / reciprocalSum;
+    }
+    
+    double getGeometricMean() {
+        double prod = 1.0;
+        for(int i = 0; i < num.length; i++) {
+            if (num[i] <= 0) return 0.0;
+            prod *= num[i];
+        }
+        return Math.pow(prod, 1.0 / num.length);
+    }   
+    
+    double getMedian() {
+        int[] temp = num.clone();
+        java.util.Arrays.sort(temp); 
+        
+        if (temp.length % 2 == 1) {
+            return temp[temp.length / 2];
+        } else {
+            return (temp[temp.length / 2 - 1] + temp[temp.length / 2]) / 2.0;
+        }
+    }
+    
+    void sorting() {
+        java.util.Arrays.sort(num);
+    }
+    
+    void drawHistogram(int start, int end, int binCount, int scale) {
+        int binWidth = (end - start) / binCount;
+        int[] bins = new int[binCount];
+        
+        for (int i = 0; i < num.length; i++) {
+            int val = num[i];
+            int index = (val - start) / binWidth;
+            if (index >= binCount) index = binCount - 1; 
+            if (index < 0) index = 0;
+            bins[index]++;
+        }
+        
+        System.out.println("--- Histogram ---");
+        for (int i = 0; i < binCount; i++) {
+            int binStart = start + i * binWidth;
+            int binEnd = binStart + binWidth - 1;
+            
+            System.out.printf("%2d~%2d\t: ", binStart, binEnd);
+            
+            int symbolCount = bins[i] / scale;
+            for (int j = 0; j < symbolCount; j++) {
+                System.out.print("#");
+            }
+            System.out.println(" (" + bins[i] + ")");
+        }
+    }
+    
+    void display() {
+        System.out.printf("%3d : ", num.length);      
+        for(int i = 0; i < num.length; i++) 
+            System.out.printf("%3d ", num[i]);
+        System.out.println();
+    }   
+}
+
+public class Main {
+    public static void main(String[] args) {
+        int size = 100;
+        int data[] = new int[size];
+        for(int i = 0; i < size; i++) 
+            data[i] = (int)(Math.random() * 100);
+            
+        Numbers obj = new Numbers(data);
+        obj.display();
+        
+        System.out.printf("Arithmetic Mean : %5.2f\n", obj.getArithmaticMean());
+        System.out.printf("Geometric Mean  : %5.2f\n", obj.getGeometricMean());      
+        System.out.printf("Harmonic Mean   : %5.2f\n", obj.getHarmonicMean());      
+        System.out.printf("Median          : %5.2f\n", obj.getMedian());      
+        System.out.println();
+        
+        obj.drawHistogram(0, 100, 10, 1);
+    }
+}
+```
+<img width="732" height="432" alt="{40ACA7CD-0150-4966-8837-F872F9C4433F}" src="https://github.com/user-attachments/assets/0b09079d-529d-48db-bf90-96da961dce95" />
 
 
 
